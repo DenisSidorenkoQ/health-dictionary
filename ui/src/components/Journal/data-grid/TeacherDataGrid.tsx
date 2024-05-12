@@ -7,7 +7,7 @@ import lessonService from "../../../service/LessonService";
 import studentService from "../../../service/StudentService";
 import markService from "../../../service/MarkService";
 import studyPassService from "../../../service/StudyPassService";
-import {Student} from "../../../model/StudentState";
+import {User} from "../../../model/ГыукState";
 import {Lesson} from "../../../model/LessonState";
 import { Util } from "../../../util/Util";
 import passService from "../../../service/PassService";
@@ -30,7 +30,7 @@ const TeacherDataGrid = (reRenderTableCount: number, selectedGroupId: number, se
     const [alertType, setAlertType] = React.useState(ALERT_TYPE[0]);
     const [alertText, setAlertText] = React.useState('');
     const [alertTitle, setAlertTitle] = React.useState('');
-    const [studentList, setStudentList] = React.useState<Student[]>([]);
+    const [studentList, setStudentList] = React.useState<User[]>([]);
     const [markList, setMarkList] = React.useState<Mark[]>([]);
     const [passList, setPassList] = React.useState<StudyPass[]>([]);
     const [lessonList, setLessonList] = React.useState<Lesson[]>([]);
@@ -41,7 +41,7 @@ const TeacherDataGrid = (reRenderTableCount: number, selectedGroupId: number, se
     }, [selectedSubjectId, reRenderTableCount]);
 
     useEffect(() => {
-        studentService.getStudentsByGroupId(selectedGroupId).then(students => setStudentList(students));
+        // studentService.getStudentsByGroupId(selectedGroupId).then(students => setStudentList(students));
 
         markService.getMarkBySubjectIdAndGroupId(selectedSubjectId, selectedGroupId).then(marks => {
             setMarkList(marks);
@@ -147,7 +147,7 @@ const TeacherDataGrid = (reRenderTableCount: number, selectedGroupId: number, se
                     studentList.map(student => {
                     return (
                         <tr>
-                            <td>{student.fio}</td>
+                            {/*<td>{student.fio}</td>*/}
                             {lessonList.map(lesson => {
                                 let lessonMark: Mark | undefined;
                                 let lessonPass: StudyPass | undefined;

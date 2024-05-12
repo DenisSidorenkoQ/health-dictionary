@@ -21,7 +21,7 @@ public class SecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeRequests(a -> a
-                        .antMatchers("/", "/error", "/authorization/login").permitAll()
+                        .antMatchers("/", "/error", "/authorization/login", "/api/v1/user").permitAll()
                         .antMatchers("/api/v1/sessions/*").authenticated()
                         .anyRequest().permitAll()
                 )

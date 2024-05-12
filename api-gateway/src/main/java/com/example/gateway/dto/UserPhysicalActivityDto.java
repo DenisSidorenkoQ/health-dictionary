@@ -1,6 +1,6 @@
 package com.example.gateway.dto;
 
-import com.example.storage.model.ActivityType;
+import com.example.gateway.model.ActivityType;
 import lombok.Builder;
 import lombok.Value;
 

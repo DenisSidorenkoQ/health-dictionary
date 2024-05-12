@@ -1,26 +1,27 @@
 package com.example.storage.model;
 
-import lombok.Builder;
-import lombok.Value;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
+import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Builder
-@Value
-@Table("user_physical_activity")
+@Data
+@Entity
+@Table(name = "user_physical_activity")
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserPhysicalActivity {
     @Id
-    @Column("id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     Long id;
-    @Column("user_id")
+    @Column(name = "user_id")
     Long userId;
-    @Column("activity_type")
+    @Column(name = "activity_type")
     ActivityType activityType;
-    @Column("activity_time")
+    @Column(name = "activity_time")
     Integer activityTime;
-    @Column("date")
+    @Column(name = "date")
     LocalDateTime date;
 }

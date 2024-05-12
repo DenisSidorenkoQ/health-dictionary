@@ -2,14 +2,13 @@ import * as React from "react";
 import {blue, grey} from "@mui/material/colors";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 
-const JournalButton = () => {
+const DoctorVisitButton = () => {
     let navigate = useNavigate();
 
-    const handleJournalButton = () => {
-        navigate('/journal');
+    const handleDoctorVisitButton = () => {
+        navigate('/note/doctor-visit');
     };
 
     return (
@@ -18,11 +17,11 @@ const JournalButton = () => {
             variant="outlined"
             sx={{bgcolor: blue[500], color: grey[900]}}
             size={"large"}
-            onClick={handleJournalButton}
+            onClick={handleDoctorVisitButton}
         >
-            <AutoStoriesIcon style={{width: '100%', height: '100%'}}/>
+            <LocalHospitalIcon style={{width: '100%', height: '100%'}}/>
         </Button>
     )
 }
 
-export default JournalButton;
+export default DoctorVisitButton;

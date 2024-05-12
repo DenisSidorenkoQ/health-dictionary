@@ -10,6 +10,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.Optional;
 
 @RestController
@@ -19,18 +20,18 @@ import java.util.Optional;
 public class UserController {
     private final UserClient userClient;
 
-    @PostMapping("/users")
+    @PostMapping("/user")
     ResponseEntity<SaveUserResponse> saveUser(@RequestBody SaveUserRequest request) {
         return userClient.saveUser(request);
     }
 
-    @PutMapping("/users")
+    @PostMapping("/user/update")
     ResponseEntity<UserResponse> updateUser(@RequestBody UpdateUserInfoRequest request) {
         return userClient.updateUser(request);
     }
 
     @GetMapping("/user/{userId}")
-    ResponseEntity<UserResponse> getById(@PathVariable("userId") final Long userId) {
+    UserResponse getById(@PathVariable("userId") final Long userId) {
         return userClient.getById(userId);
     }
 

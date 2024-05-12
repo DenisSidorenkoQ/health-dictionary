@@ -1,29 +1,29 @@
 import * as React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from "@mui/material/Box";
+import PhysicalActivityButton from "../../components/Menu/button/PhysicalActivityButton";
 import './Menu.css';
-import CreateNewUserButton from "../../components/Menu/button/CreateNewUserButton";
-import CreateAdditionalEntitiesButton from "../../components/Menu/button/CreateAdditionalEntitiesButton";
-import AddNewSubjectForGroupButton from "../../components/Menu/button/AddNewSubjectForGroupButton";
+import DietButton from "../../components/Menu/button/DietButton";
+import DoctorVisitButton from "../../components/Menu/button/DoctorVisitButton";
 
 const theme = createTheme();
 
 
-const AdminMenuPage = () => {
+const UserMenuPage = () => {
     return (
         <ThemeProvider theme={theme}>
             <Box style={{
-                position: 'absolute', left: '20%', top: '40%', display: 'flex'
+                position: 'absolute', left: '30%', top: '40%', display: 'flex'
             }}>
                 <div className="gridContainer">
                     <div className="gridElement">
-                        {CreateNewUserButton()}
+                        {PhysicalActivityButton()}
                     </div>
                     <div className="gridElement">
-                        {CreateAdditionalEntitiesButton()}
+                        {DietButton()}
                     </div>
                     <div className="gridElement">
-                        {AddNewSubjectForGroupButton()}
+                        {DoctorVisitButton()}
                     </div>
                 </div>
             </Box>
@@ -31,4 +31,4 @@ const AdminMenuPage = () => {
     );
 };
 
-export default AdminMenuPage;
+export default UserMenuPage;

@@ -1,28 +1,29 @@
 package com.example.storage.model;
 
-import lombok.Builder;
-import lombok.Value;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
+import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Builder
-@Value
-@Table("user_doctor_visit")
+@Data
+@Entity
+@Table(name = "user_doctor_visit")
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDoctorVisit {
     @Id
-    @Column("id")
-    Long id;
-    @Column("user_id")
-    Long userId;
-    @Column("name")
-    String name;
-    @Column("description")
-    String description;
-    @Column("date")
-    LocalDateTime date;
-    @Column("isNotified")
-    Boolean isNotified;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "user_id")
+    private Long userId;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "date")
+    private LocalDateTime date;
+    @Column(name = "isNotified")
+    private Boolean isNotified;
 }

@@ -6,8 +6,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class JournalServiceApplication {
+public class StorageServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(JournalServiceApplication.class, args);
+        SpringApplication.run(StorageServiceApplication.class, args);
     }
 }

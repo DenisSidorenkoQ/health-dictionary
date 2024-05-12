@@ -1,36 +1,38 @@
 package com.example.user.model;
 
 import lombok.*;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Builder
 @Data
-@Table("user")
 @Entity
+@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
     @Id
-    @Column("id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    @Column("login")
+    @Column(name = "login")
     private String login;
-    @Column("password")
+    @Column(name = "password")
     private String password;
-    @Column("mail")
+    @Column(name = "mail")
     private String mail;
-    @Column("age")
+    @Column(name = "age")
     private Integer age;
-    @Column("sex")
-    private SexType sex;
-    @Column("height")
-    private Float height;
-    @Column("weight")
-    private Float weight;
-    @Column("role_name")
+    @Column(name = "sex")
+    private String sex;
+    @Column(name = "height")
+    private Integer height;
+    @Column(name = "weight")
+    private Integer weight;
+    @Column(name = "role_name")
     private String roleName;
+    @Column(name = "frequency_physical_activity")
+    private String physicalActivity;
+    @Column(name = "is_notify")
+    private Boolean isNotify;
 }

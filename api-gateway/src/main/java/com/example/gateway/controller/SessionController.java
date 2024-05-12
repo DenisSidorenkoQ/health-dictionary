@@ -2,6 +2,7 @@ package com.example.gateway.controller;
 
 import com.example.gateway.client.UserClient;
 import com.example.gateway.dto.UserResponse;
+import com.example.gateway.dto.UserSessionResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,9 +19,14 @@ public class SessionController {
     private final UserClient userClient;
 
     @GetMapping
-    public ResponseEntity<UserResponse> getCurrentUser() {
+    public UserSessionResponse getCurrentUser() {
         final DefaultOAuth2User principal = (DefaultOAuth2User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         final Long userId = Long.valueOf(principal.getName());
-        return userClient.getById(userId);
+        UserResponse userResponse = userClient.getById(userId);
+        return UserSessionResponse.builder()
+                .id(userResponse.getId())
+                .login(userResponse.getLogin())
+                .roleName(userResponse.getRoleName())
+                .build();
     }
 }

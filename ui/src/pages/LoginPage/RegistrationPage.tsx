@@ -15,7 +15,7 @@ import authorizationService from "../../service/AuthorizationService";
 
 const theme = createTheme();
 
-const LoginPage = () => {
+const RegistrationPage = () => {
     const infoAlertType = "info" as AlertColor;
     const warningAlertType = "warning" as AlertColor;
     const successAlertType = "success" as AlertColor;
@@ -41,13 +41,13 @@ const LoginPage = () => {
 
     const handleSubmit = async (event: { preventDefault: () => void; }) => {
         event.preventDefault();
-        const authorizationStatus = authorizationService.login(login, password);
-        console.log(authorizationStatus);
-        await handleAlert(await authorizationStatus);
+        const registrationStatus = authorizationService.registration(login, password);
+        console.log(registrationStatus);
+        await handleAlert(await registrationStatus);
     };
 
-    const handleToRegistrationLink = () => {
-        navigate("/registration")
+    const handleToAuthorizationLink = () => {
+        navigate("/login")
     }
 
     const handleAlert = async (status: number) => {
@@ -56,13 +56,13 @@ const LoginPage = () => {
 
             setAlertType(successAlertType);
             setAlertTitle('Success');
-            setAlertText('Авторизация успешна');
+            setAlertText('Пользователь создан');
             navigate('/menu');
             return;
         } else {
             setAlertType(warningAlertType);
             setAlertTitle('Warning');
-            setAlertText('Данные не верны');
+            setAlertText('Пользователь уже существует');
             return;
         }
     };
@@ -90,7 +90,7 @@ const LoginPage = () => {
                         <PersonIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Авторизация
+                        Регистрация
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
@@ -121,8 +121,8 @@ const LoginPage = () => {
                             <AlertTitle>{alertTitle}</AlertTitle>
                             <strong>{alertText}</strong>
                         </Alert>
-                        <Link sx={{ cursor: 'pointer' }} onClick={handleToRegistrationLink}>
-                            Перейти на страницу регистрации
+                        <Link sx={{ cursor: 'pointer' }} onClick={handleToAuthorizationLink}>
+                            Перейти на страницу авторизации
                         </Link>
                         <Button
                             type="submit"
@@ -130,7 +130,7 @@ const LoginPage = () => {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Войти
+                            Зарегистрироваться
                         </Button>
                     </Box>
                 </Box>
@@ -139,4 +139,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default RegistrationPage;

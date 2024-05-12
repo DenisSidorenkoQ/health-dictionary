@@ -3,7 +3,7 @@ import {Mark} from "../../../model/MarkState";
 import {StudyPass} from "../../../model/StudyPassState";
 import * as React from "react";
 import {Lesson} from "../../../model/LessonState";
-import {Student} from "../../../model/StudentState";
+import {User} from "../../../model/ГыукState";
 import {useEffect} from "react";
 import LessonService from "../../../service/LessonService";
 import studentService from "../../../service/StudentService";
@@ -13,7 +13,7 @@ import {Util} from "../../../util/Util";
 
 const StudentDataGrid = (groupId: number, selectedSubjectId: number) => {
     const [lessonList, setLessonList] = React.useState<Lesson[]>([]);
-    const [studentList, setStudentList] = React.useState<Student[]>([]);
+    const [studentList, setStudentList] = React.useState<User[]>([]);
     const [markList, setMarkList] = React.useState<Mark[]>([]);
     const [passList, setPassList] = React.useState<StudyPass[]>([]);
 
@@ -22,7 +22,7 @@ const StudentDataGrid = (groupId: number, selectedSubjectId: number) => {
     }, [selectedSubjectId]);
 
     useEffect(() => {
-        studentService.getStudentsByGroupId(groupId).then(students => setStudentList(students));
+        // studentService.getStudentsByGroupId(groupId).then(students => setStudentList(students));
 
         markService.getMarkBySubjectIdAndGroupId(selectedSubjectId, groupId).then(marks => {
             setMarkList(marks);
@@ -71,7 +71,7 @@ const StudentDataGrid = (groupId: number, selectedSubjectId: number) => {
                 studentList.map(student => {
                     return (
                         <tr>
-                            <td>{student.fio}</td>
+                            {/*<td>{student.fio}</td>*/}
                             {
                                 lessonList.map(lesson => {
                                     let lessonMark: Mark | undefined;

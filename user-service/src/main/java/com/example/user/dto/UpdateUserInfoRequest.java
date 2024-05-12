@@ -11,11 +11,11 @@ import lombok.extern.jackson.Jacksonized;
 @Jacksonized
 public class UpdateUserInfoRequest {
     String login;
-    String password;
     String mail;
     Integer age;
-    SexType sex;
-    Float height;
-    Float weight;
-    FrequencyPhysicalActivity physicalActivity;
+    String sex;
+    Integer height;
+    Integer weight;
+    String physicalActivity;
+    Boolean isNotify;
 }
