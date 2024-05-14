@@ -19,7 +19,7 @@ public class UserPhysicalActivity {
     @Column(name = "user_id")
     Long userId;
     @Column(name = "activity_type")
-    ActivityType activityType;
+    String activityType;
     @Column(name = "activity_time")
     Integer activityTime;
     @Column(name = "date")

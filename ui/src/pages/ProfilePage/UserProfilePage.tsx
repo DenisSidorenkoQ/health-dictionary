@@ -77,7 +77,7 @@ const UserProfilePage = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <h1 className='ProfileHeader'>Профиль пользователя</h1>
+            <h1 className='DoctorVisitHeader'>Профиль пользователя</h1>
             <Container maxWidth="sm">
                 <Paper elevation={4} style={{ padding: '16px' }}>
                     <Grid container spacing={1}>

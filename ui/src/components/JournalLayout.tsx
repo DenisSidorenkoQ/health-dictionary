@@ -15,17 +15,17 @@ interface Props {
 
 const navigationItems = [
   {
-    title: 'Authorization',
+    title: 'Авторизация',
     path: 'login',
     icon: <MeetingRoomIcon />
   },
   {
-    title: 'Menu',
+    title: 'Меню',
     path: 'menu',
     icon: <Menu />
   },
   {
-    title: 'Profile',
+    title: 'Профиль',
     path: 'profile',
     icon: <AccountBoxIcon />
   }

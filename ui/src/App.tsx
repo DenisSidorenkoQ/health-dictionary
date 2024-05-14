@@ -8,6 +8,10 @@ import LoadingScreen from "./components/LoadingScreen";
 import UserMenuPage from "./pages/MenuPage/UserMenuPage";
 import UserProfilePage from "./pages/ProfilePage/UserProfilePage";
 import RegistrationPage from "./pages/LoginPage/RegistrationPage";
+import DoctorVisitPage from "./pages/DoctorVisitPage/DoctorVisitPage";
+import PhysicalActivityPage from "./pages/PhysicalActivityPage/PhysicalActivityPage";
+import FoodDietPage from './pages/FoodPage/FoodDietPage';
+import AnalysisPage from './pages/AnalysisPage/AnalysisPage';
 
 function App() {
     const user = useSessionStore(state => state.user);
@@ -30,6 +34,10 @@ function App() {
                     <Route path={'/login'} element={<LoginPage />} />
                     <Route path={'/menu'} element={<UserMenuPage />} />
                     <Route path={'/profile'} element={<UserProfilePage />} />
+                    <Route path={'/note/physical-activity'} element={<PhysicalActivityPage />} />
+                    <Route path={'/note/doctor-visit'} element={<DoctorVisitPage />} />
+                    <Route path={'/note/food-diet'} element={<FoodDietPage />} />
+                    <Route path={'/note/analysis'} element={<AnalysisPage />} />
                     <Route path={'*'} element={<Navigate to="/menu" replace />} />
                 </Routes>
             </JournalLayout>

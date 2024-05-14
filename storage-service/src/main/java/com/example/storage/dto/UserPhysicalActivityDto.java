@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class UserPhysicalActivityDto {
     Long id;
     Long userId;
-    ActivityType activityType;
+    String activityType;
     Integer activityTime;
     LocalDateTime date;
 }
