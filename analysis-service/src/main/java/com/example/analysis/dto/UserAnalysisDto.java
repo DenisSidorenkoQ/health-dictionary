@@ -12,5 +12,7 @@ public class UserAnalysisDto {
     Float caloriesReceived;
     Float caloriesBurned;
     Float caloriesNorm;
+    Float sugarReceived;
+    Float sugarNorm;
     LocalDate date;
 }

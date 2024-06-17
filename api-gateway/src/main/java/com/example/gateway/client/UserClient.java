@@ -2,9 +2,12 @@ package com.example.gateway.client;
 
 import com.example.gateway.dto.*;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,5 +25,4 @@ public interface UserClient {
 
     @PostMapping("/user/credentials")
     Optional<UserResponse> getByCredentials(@RequestBody GetUserByCredentialsRequest request);
-
 }

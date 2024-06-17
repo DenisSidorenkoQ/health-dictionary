@@ -15,7 +15,7 @@ public class UserDoctorVisitController {
     private final UserDoctorVisitService userDoctorVisitService;
 
     @PostMapping("/visits")
-    UserDoctorVisitDto saveOrGet(@RequestBody UserDoctorVisitDto request) {
+    UserDoctorVisitDto saveOrUpdate(@RequestBody UserDoctorVisitDto request) {
         userDoctorVisitService.saveUserDiet(request);
         return request;
     }

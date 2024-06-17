@@ -15,13 +15,13 @@ public class UserPhysicalActivity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    Long id;
+    private Long id;
     @Column(name = "user_id")
-    Long userId;
+    private Long userId;
     @Column(name = "activity_type")
-    String activityType;
+    private String activityType;
     @Column(name = "activity_time")
-    Integer activityTime;
+    private Integer activityTime;
     @Column(name = "date")
-    LocalDateTime date;
+    private LocalDateTime date;
 }

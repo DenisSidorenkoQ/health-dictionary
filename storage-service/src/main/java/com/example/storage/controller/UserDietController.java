@@ -16,7 +16,7 @@ public class UserDietController {
     private final UserDietService userDietService;
 
     @PostMapping("/diets")
-    UserDietDto saveOrGet(@RequestBody UserDietDto request) {
+    UserDietDto saveOrUpdate(@RequestBody UserDietDto request) {
         userDietService.saveUserDiet(request);
         return request;
     }

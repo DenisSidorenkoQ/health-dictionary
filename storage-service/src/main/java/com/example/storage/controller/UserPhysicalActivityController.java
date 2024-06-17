@@ -3,8 +3,10 @@ package com.example.storage.controller;
 import com.example.storage.dto.UserPhysicalActivityDto;
 import com.example.storage.service.UserPhysicalActivityService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class UserPhysicalActivityController {
     private final UserPhysicalActivityService userPhysicalActivityService;
 
     @PostMapping("/physical-activity")
-    UserPhysicalActivityDto saveOrGet(@RequestBody UserPhysicalActivityDto request) {
+    UserPhysicalActivityDto saveOrUpdate(@RequestBody UserPhysicalActivityDto request) {
         userPhysicalActivityService.saveUserDiet(request);
         return request;
     }
@@ -26,8 +28,9 @@ public class UserPhysicalActivityController {
     }
 
     @GetMapping("/users/{userId}/physical-activity")
-    List<UserPhysicalActivityDto> getAllPhysicalActivityByDate(@PathVariable Long userId, @RequestParam LocalDateTime startDate,
-                                                               @RequestParam LocalDateTime endDate) {
+    List<UserPhysicalActivityDto> getAllPhysicalActivityByDate(@PathVariable Long userId,
+                                                               @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
+                                                               @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate) {
         return userPhysicalActivityService.findAllActivityByDate(userId, startDate, endDate);
     }
 }
